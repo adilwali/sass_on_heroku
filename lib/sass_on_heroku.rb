@@ -58,6 +58,7 @@ class SassOnHeroku
 
 	def stylesheets
 		@stylesheets ||= Dir[css_location_on_heroku + '/*.css'].map { |f| f.split('/').last }
+		@stylesheets + Dir["#{RAILS_ROOT}/tmp/sass-output" + '/*/*.css'].map { |f| f.split("#{RAILS_ROOT}/tmp/sass-output/").last }.reject { |obj| obj.split('/')[1] == 'partials' }
 	end
 
 	def css_request_regexp

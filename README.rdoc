@@ -5,3 +5,15 @@ Rails plugin to compile Sass files to tmp/ and serve from there, avoiding troubl
 It will add a Rack middleware on top of your Rails app that quickly detects requests for Sass CSS files, and serve them with caching headers.
 
 If you have issues please tell us on support.heroku.com -- or just fork it :)
+
+= Some editions in this fork
+
+This plugin wasn't working for a scenario when you have CSS/SASS files in subdirectories.  For example, if you put your SASS files within a subdirectory such as "sass/admin/style.sass", then this plugin won't find it.  
+
+I made some small modifications to make that possible.  It was a little harder than just using the basic DIR commands to traverse the directories because Heroku seems to have some built-in security that doesn't want you to do that.  (At least not from script/console)
+
+I hope this is useful to someone else! 
+
+-Adil Wali
+Crowd Interactive
+adil@crowdint.com
